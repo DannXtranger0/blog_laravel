@@ -15,5 +15,18 @@
 
     <main>{{$slot}}</main>
     
+ 
+    @auth
+    <form action="/logout" method="POST">
+        @csrf
+        <button type="submit">Log out</button>
+    </form>
+    @endauth
+    
+    @guest
+        <a href="/login">Log In</a>
+        <a href="/register">Create An Account</a>
+    @endguest
+       
 </body>
 </html>
