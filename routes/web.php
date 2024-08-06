@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterUserController;
 use App\Http\Controllers\SessionController;
@@ -14,8 +15,11 @@ Route::get('/create', [PostController::class, 'create']);
 Route::post('/posts', [PostController::class, 'store']);
 
 
+//Comentarios
+Route::post('/posts/comment/{id}',[CommentController::class,'store']);
+
 Route::get('/edit/{id}', [PostController::class, 'edit']);
-Route::get('/posts/{id}', [PostController::class, 'show']);
+Route::get('/posts/{id}', [PostController::class, 'show'])->name('post.show');
 Route::patch('/posts/{id}', [PostController::class, 'update']);
 Route::delete('/posts/{id}',[PostController::class, 'destroy']);
 
@@ -25,3 +29,4 @@ Route::post('/register',[RegisterUserController::class,'store']);
 Route::get('/login', [SessionController::class, 'create']);
 Route::post('/login', [SessionController::class, 'store']);
 Route::post('/logout', [SessionController::class, 'destroy']);
+

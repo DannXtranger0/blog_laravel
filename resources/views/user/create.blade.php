@@ -7,10 +7,10 @@
     <form method="POST" action="/register">
         @csrf
         <label for="name">Full Name</label>
-        <input type="text" name="name" id="name">
+        <input type="text" name="name" id="name" value="{{old('name')}}">
 
         <label for="email">Email</label>
-        <input type="text" name="email" id="email">
+        <input type="text" name="email" id="email" value="{{old('email')}}">
 
         <label for="password">Password</label>
         <input type="password" name="password" id="password">
